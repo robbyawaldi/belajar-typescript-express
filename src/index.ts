@@ -8,6 +8,7 @@ import { config as dotenv } from 'dotenv'
 
 // Routers
 import UserRoutes from './router/UserRoutes'
+import AuthRoutes from './router/AuthRoutes'
 
 class App {
     public app: Application
@@ -32,6 +33,7 @@ class App {
             res.send("Hello Typescript express")
         })
         this.app.use("/api/v1/users", UserRoutes)
+        this.app.use("/api/v1/auth", AuthRoutes)
     }
 }
 
