@@ -8,6 +8,8 @@ RUN npm run tsc
 FROM node
 WORKDIR /usr/app
 COPY package*.json ./
+RUN npm install --production
+
 COPY --from=builder /usr/app/build ./build
 
 COPY .env .
