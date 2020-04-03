@@ -3,7 +3,9 @@ WORKDIR /usr/app
 COPY package*.json ./
 RUN npm install
 COPY . .
+RUN npx sequelize-cli init
 RUN npm run tsc
+RUN npx sequelize-cli db:migrate
 
 FROM node
 WORKDIR /usr/app
