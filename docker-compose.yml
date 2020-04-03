@@ -11,7 +11,7 @@ services:
     ports:
       - "5432:5432"
   web:
-    image: typescript-express
+    image: typescript-express:latest
     depands_on:
       - db
     ports:
