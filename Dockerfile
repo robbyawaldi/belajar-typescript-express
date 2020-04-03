@@ -3,13 +3,13 @@ WORKDIR /usr/app
 COPY package*.json ./
 RUN npm install
 COPY . .
-RUN npx sequelize-cli init
 RUN npm run tsc
 
 FROM node
 WORKDIR /usr/app
 COPY package*.json ./
 RUN npm install --production
+RUN npx sequelize-cli init
 
 COPY --from=builder /usr/app/build ./build
 
